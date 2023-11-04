@@ -1,11 +1,19 @@
+<script setup lang="ts">
+import Login from "../components/login/Login.vue"
+</script>
+
+
 <template>
-    <div>
-        login view
+    <div class="login-container">
+        <Login />
     </div>
 </template>
 
-<script setup lang="ts">
-
-</script>
-
-<style scoped></style>
+<style scoped>
+.login-container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+</style>

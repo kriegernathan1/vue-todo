@@ -18,6 +18,10 @@ let protectedRoutes: RouteRecordRaw[] = [
 
 const publicRoutes: RouteRecordRaw[] = [
   {
+    path: "/",
+    redirect: "/app",
+  },
+  {
     path: "/login",
     component: LoginViewVue,
     name: "login",
@@ -39,12 +43,13 @@ const router = createRouter({
   routes: routes,
 });
 
-router.beforeEach((to, _) => {
+router.beforeEach(async (to, _) => {
   if (to.meta.requiresAuth) {
     const userStore = useUserStore();
-    const isAuthenticated = userStore.isAuthenticated();
-    return "/login";
+    const isAuthenticated = await userStore.isAuthenticated();
+    return isAuthenticated ? true : "/login";
   }
+  return true;
 });
 
 export default router;

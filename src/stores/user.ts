@@ -21,14 +21,14 @@ export const useUserStore = defineStore("user", () => {
     password: string
   ): Promise<LoginResponse> {
     const userResponse = await fetch(
-      "/mock-data/person-175c421a-6e9e-49cc-97cd-d0b679dbb4d5.json"
+      "/mock-data/user/person-175c421a-6e9e-49cc-97cd-d0b679dbb4d5.json"
     );
-    const user = await userResponse.json();
-    user.value = user;
+    const userObject = await userResponse.json();
+    user.value = userObject;
 
     return {
       status: "Success",
-      user,
+      user: userObject,
     };
   }
 
