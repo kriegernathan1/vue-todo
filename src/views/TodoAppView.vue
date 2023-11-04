@@ -1,14 +1,7 @@
-<script setup lang="ts">
-import NavBar from '../components/NavBar/NavBar.vue';
-import { useUserStore } from '@/stores/user';
-
-
-const userStore = useUserStore();
-const { user } = userStore;
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <NavBar />
+    <h2>Todo app</h2>
 </template>
 
 <style scoped></style>
