@@ -25,7 +25,6 @@ async function login(_: SubmitEvent) {
     const loginAction = await userStore.login(username, password)
 
     if (loginAction.status === 'Success') {
-        console.log("About to push")
         router.push('/app')
     }
 
