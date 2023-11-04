@@ -13,7 +13,7 @@ interface LoginResponse {
   user: User;
 }
 
-export const useCounterStore = defineStore("user", () => {
+export const useUserStore = defineStore("user", () => {
   const user = ref<User>();
 
   async function login(

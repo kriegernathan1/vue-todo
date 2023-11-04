@@ -1,19 +1,50 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteRecordRaw,
+  type RouteRecordSingleView,
+} from "vue-router";
 import TodoAppView from "../views/TodoAppView.vue";
+import LoginViewVue from "@/views/LoginView.vue";
+import { useUserStore } from "../stores/user";
 
-const protectedRoutes = [];
+let protectedRoutes: RouteRecordRaw[] = [
+  {
+    path: "/app",
+    component: TodoAppView,
+    name: "main",
+  },
+];
 
-const publicRoutes = [];
+const publicRoutes: RouteRecordRaw[] = [
+  {
+    path: "/login",
+    component: LoginViewVue,
+    name: "login",
+  },
+];
+
+const updateProtectedRoutes = (routes: RouteRecordRaw[]) =>
+  routes.map((route) => {
+    route.meta = {
+      requiresAuth: true,
+    };
+    return route;
+  });
+
+const routes = [...updateProtectedRoutes(protectedRoutes), ...publicRoutes];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "Todo",
-      component: TodoAppView,
-    },
-  ],
+  routes: routes,
+});
+
+router.beforeEach((to, from) => {
+  if (to.meta.requiresAuth) {
+    const userStore = useUserStore();
+    const isAuthenticated = userStore.isAuthenticated();
+    return "/login";
+  }
 });
 
 export default router;

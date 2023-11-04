@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
-<template></template>
+<template>
+    <h2>Todo app</h2>
+</template>
 
 <style scoped></style>
