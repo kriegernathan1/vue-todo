@@ -39,7 +39,7 @@ const router = createRouter({
   routes: routes,
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach((to, _) => {
   if (to.meta.requiresAuth) {
     const userStore = useUserStore();
     const isAuthenticated = userStore.isAuthenticated();
