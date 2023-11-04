@@ -32,7 +32,7 @@ export const useUserStore = defineStore("user", () => {
     };
   }
 
-  function logout(): boolean {
+  async function logout(): Promise<boolean> {
     user.value = undefined;
     return true;
   }

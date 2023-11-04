@@ -1,12 +1,22 @@
 
 <script setup lang="ts">
+import router from '@/router';
+import { useUserStore } from '@/stores/user';
 
+const userStore = useUserStore()
+
+async function logout() {
+    await userStore.logout()
+    router.push('/login')
+}
 </script>
 
 <template>
-    <v-toolbar :elevation="100">
-        <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    </v-toolbar>
+    <v-app>
+        <v-app-bar :elevation="11" title="Taskify">
+            <v-app-bar-nav-icon @click="logout" icon="mdi-logout"></v-app-bar-nav-icon>
+        </v-app-bar>
+    </v-app>
 </template>
 
 <style scoped>
