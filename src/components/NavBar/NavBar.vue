@@ -12,11 +12,9 @@ async function logout() {
 </script>
 
 <template>
-    <v-app>
-        <v-app-bar :elevation="11" title="Taskify">
-            <v-app-bar-nav-icon @click="logout" icon="mdi-logout"></v-app-bar-nav-icon>
-        </v-app-bar>
-    </v-app>
+    <v-app-bar :elevation="11" title="Taskify">
+        <v-app-bar-nav-icon @click="logout" icon="mdi-logout"></v-app-bar-nav-icon>
+    </v-app-bar>
 </template>
 
 <style scoped>

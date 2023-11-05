@@ -1,14 +1,21 @@
 <script setup lang="ts">
 import NavBar from '../components/NavBar/NavBar.vue';
-import { useUserStore } from '@/stores/user';
-
-
-const userStore = useUserStore();
-const { user } = userStore;
+import Todo from "../components/Todo/Todo.vue";
 </script>
 
 <template>
-    <NavBar />
+    <div class="container">
+        <v-app>
+            <NavBar />
+            <Todo />
+        </v-app>
+    </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+</style>
