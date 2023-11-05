@@ -38,13 +38,15 @@ const items: TodoItem[] = [
 
 
 <template>
-    <div class="container">
+    <div class="todo-container">
         <v-container>
-            <v-row align="center">
+            <v-row>
                 <v-text-field></v-text-field>
             </v-row>
-            <v-row v-for="task of items" align="center">
-                <TodoItem :task="task" />
+            <v-row v-for="task of items">
+                <v-card width="600">
+                    <TodoItem :task="task" />
+                </v-card>
             </v-row>
         </v-container>
     </div>
@@ -52,7 +54,8 @@ const items: TodoItem[] = [
 
 
 <style scoped>
-.container {
-    margin-top: 150px;
+.todo-container {
+    min-width: 400px;
+    max-width: 600px;
 }
 </style>

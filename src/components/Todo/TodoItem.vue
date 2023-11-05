@@ -1,23 +1,24 @@
 <script setup lang="ts">
+import { toRef } from "vue";
 import { type TodoItem } from "./Todo.vue"
 
-defineProps<{ task: TodoItem }>();
+const { task } = defineProps<{ task: TodoItem }>();
 
+const isComplete = toRef(task.isComplete)
 </script>
     
 
 <template>
     <v-container>
         <v-row align="center" justify="center">
-            <v-col>
-                {{ task.name }}
-            </v-col>
-            <v-col>
-                {{ task.isComplete }}
-            </v-col>
+            <v-checkbox :class="{ strikeOut: isComplete }" v-model="isComplete" :label="task.name"></v-checkbox>
         </v-row>
     </v-container>
 </template>
 
 
-<style scoped></style>
+<style scoped>
+.strikeOut {
+    text-decoration: line-through;
+}
+</style>
