@@ -18,7 +18,7 @@ const isComplete = toRef(task.isComplete)
 
 
 <style scoped>
-.strikeOut {
+.strikeOut :deep(label) {
     text-decoration: line-through;
 }
 </style>
