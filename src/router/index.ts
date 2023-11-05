@@ -43,11 +43,10 @@ const router = createRouter({
   routes: routes,
 });
 
-router.beforeEach(async (to, _) => {
+router.beforeEach((to, _) => {
   if (to.meta.requiresAuth) {
     const userStore = useUserStore();
-    const isAuthenticated = await userStore.isAuthenticated();
-    return isAuthenticated ? true : "/login";
+    return userStore.isLoggedIn ? true : "/login";
   }
   return true;
 });

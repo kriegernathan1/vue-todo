@@ -15,6 +15,9 @@ interface LoginResponse {
 
 export const useUserStore = defineStore("user", () => {
   const user = ref<User>();
+  const isLoggedIn = computed(() => {
+    return !!user.value;
+  });
 
   async function login(
     username: string,
@@ -45,5 +48,5 @@ export const useUserStore = defineStore("user", () => {
     user.value = undefined;
   }
 
-  return { user, login, logout, isAuthenticated };
+  return { user, login, logout, isLoggedIn };
 });
