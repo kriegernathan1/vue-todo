@@ -39,23 +39,37 @@ const items: TodoItem[] = [
 
 <template>
     <div class="todo-container">
-        <v-container>
-            <v-row>
-                <v-text-field></v-text-field>
-            </v-row>
-            <v-row v-for="task of items">
-                <v-card width="600">
+        <div class="todo-create-container">
+            <v-text-field></v-text-field>
+        </div>
+
+        <div class="todo-items-container">
+            <div class="todo-list-container" v-for="task of items">
+                <div class="todo-item">
                     <TodoItem :task="task" />
-                </v-card>
-            </v-row>
-        </v-container>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
 
 
 <style scoped>
 .todo-container {
-    min-width: 400px;
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.todo-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.todo-item {
+    width: 100%;
+    background-color: #212121;
 }
 </style>

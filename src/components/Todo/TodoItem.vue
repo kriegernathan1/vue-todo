@@ -9,11 +9,7 @@ const isComplete = toRef(task.isComplete)
     
 
 <template>
-    <v-container>
-        <v-row align="center" justify="center">
-            <v-checkbox :class="{ strikeOut: isComplete }" v-model="isComplete" :label="task.name"></v-checkbox>
-        </v-row>
-    </v-container>
+    <v-checkbox :class="{ strikeOut: isComplete }" v-model="isComplete" :label="task.name"></v-checkbox>
 </template>
 
 
