@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { RouterView } from 'vue-router';
-import NavBar from './components/NavBar/NavBar.vue';
-import { useUserStore } from './stores/user';
+import { ref } from "vue";
+import { RouterView } from "vue-router";
+import NavBar from "./components/NavBar/NavBar.vue";
+import { useUserStore } from "./stores/user";
 
-const isLoggedIn = useUserStore().isLoggedIn
+const isLoggedIn = useUserStore().isLoggedIn;
 </script>
 
 <template>

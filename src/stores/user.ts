@@ -21,10 +21,10 @@ export const useUserStore = defineStore("user", () => {
 
   async function login(
     username: string,
-    password: string
+    password: string,
   ): Promise<LoginResponse> {
     const userResponse = await fetch(
-      "/mock-data/user/person-175c421a-6e9e-49cc-97cd-d0b679dbb4d5.json"
+      "/mock-data/user/person-175c421a-6e9e-49cc-97cd-d0b679dbb4d5.json",
     );
     const userObject = await userResponse.json();
     user.value = userObject;
