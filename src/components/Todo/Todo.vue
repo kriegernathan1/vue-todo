@@ -15,17 +15,17 @@ const items = ref<TodoItem[]>([
     id: "1",
   },
   {
-    name: "Clean Kitched",
+    name: "Vacuum Living Room",
     isComplete: false,
     id: "2",
   },
   {
-    name: "Clean Kitched",
+    name: "Pay Water Bill",
     isComplete: false,
     id: "3",
   },
   {
-    name: "Clean Kitched",
+    name: "Walk the dog",
     isComplete: false,
     id: "4",
   },
@@ -60,20 +60,13 @@ function markComplete(id: string, isComplete: boolean) {
 <template>
   <div class="todo-container">
     <div class="todo-create-container">
-      <v-text-field
-        v-model="newTodoText"
-        @keyup.enter="createTodo"
-      ></v-text-field>
+      <v-text-field v-model="newTodoText" placeholder="Enter new Task" @keyup.enter="createTodo"></v-text-field>
     </div>
 
     <div class="todo-items-container">
       <div class="todo-list-container" v-for="task of items">
         <div class="todo-item">
-          <TodoItem
-            :task="task"
-            @removeTask="removeTask"
-            @markComplete="markComplete"
-          />
+          <TodoItem :task="task" @removeTask="removeTask" @markComplete="markComplete" />
         </div>
       </div>
     </div>
