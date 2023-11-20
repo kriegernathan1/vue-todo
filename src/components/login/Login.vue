@@ -29,23 +29,55 @@ async function login(_: SubmitEvent) {
 }
 </script>
 
+
+<!-- Without script setup -->
+<!-- <script lang="ts">
+import { useUserStore } from "@/stores/user";
+import { reactive, ref } from "vue";
+import router from "../../router/index";
+
+interface LoginForm {
+  username: string;
+  password: string;
+}
+
+export default {
+
+  setup() {
+    return {
+      form: reactive<LoginForm>({
+        username: "",
+        password: "",
+      }),
+      valid: ref(),
+    }
+  },
+  methods: {
+    async login(_: SubmitEvent) {
+      if (!this.valid) return;
+
+      const { username, password } = this.form;
+      const loginAction = await useUserStore().login(username, password);
+
+      if (loginAction.status === "Success") {
+        router.push("/app");
+      }
+    }
+  }
+
+
+}
+
+
+</script> -->
+
 <template>
   <v-form @submit.prevent="login" v-model="valid">
     <v-container>
       <v-row>
         <v-col>
-          <v-text-field
-            type="text"
-            v-model="form.username"
-            label="Username"
-            required
-          ></v-text-field>
-          <v-text-field
-            type="password"
-            v-model="form.password"
-            label="Password"
-            required
-          ></v-text-field>
+          <v-text-field type="text" v-model="form.username" label="Username" required></v-text-field>
+          <v-text-field type="password" v-model="form.password" label="Password" required></v-text-field>
           <v-btn type="submit">Submit</v-btn>
         </v-col>
       </v-row>
