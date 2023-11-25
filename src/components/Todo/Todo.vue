@@ -104,7 +104,7 @@ function markComplete(id: string, isComplete: boolean) {
       <v-progress-circular indeterminate></v-progress-circular>
     </div>
 
-    <div class="todo-items-container" v-if="!isLoading">
+    <div class="todo-items-container" v-else>
       <div class="todo-list-container" v-for="task of items">
         <div class="todo-item">
           <TodoItem :task="task" @removeTask="removeTask" @markComplete="markComplete" />
