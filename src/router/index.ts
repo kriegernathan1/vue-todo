@@ -6,6 +6,7 @@ import {
 } from "vue-router";
 import TodoAppView from "../views/TodoAppView.vue";
 import LoginViewVue from "@/views/LoginView.vue";
+import PlaygroundView from "@/views/PlaygroundView.vue";
 import { useUserStore } from "../stores/user";
 
 let protectedRoutes: RouteRecordRaw[] = [
@@ -25,6 +26,11 @@ const publicRoutes: RouteRecordRaw[] = [
     path: "/login",
     component: LoginViewVue,
     name: "login",
+  },
+  {
+    path: "/playground",
+    component: PlaygroundView,
+    name: "Play Ground",
   },
 ];
 
